@@ -15,11 +15,11 @@ function RenderCampsite({campsite}) {
     );
 }
 
-function RenderComments({comments}) {
+function RenderComments({comments, campsite}) {
     if(comments) {
         return(
             <div class="col-md-5 m-1" align="left">
-                <h4>Comments - {this.props.campsite.name}</h4>
+                <h4>Comments - {campsite.name}</h4>
                 {
                     comments.map(comment => {
                         return(
@@ -43,7 +43,7 @@ function CampsiteInfo(props) {
             <div className="container">
                 <div className="row">
                     <RenderCampsite campsite={props.campsite} />
-                    <RenderComments comments={props.campsite.comments} />
+                    <RenderComments comments={props.campsite.comments} campsite={props.campsite} />
                 </div>
             </div>
         );
